@@ -24,7 +24,18 @@ struct FriendsView: View {
     @State private var isRequested6: Bool = false
     @State private var isRequested7: Bool = false
     @State private var isRequested8: Bool = false
-
+    @State private var sampleProfiles: [Profile]
+ = [
+    Profile(username: "ulamsal", sunSign: "Aries", moonSign: "Pisces", risingSign: "Leo", profilePicture: UIImage(named: "propic1")!, name: "upasana"),
+    Profile(username: "aarya_nag", sunSign: "Scorpio", moonSign: "Taurus", risingSign: "Scorpio", profilePicture: UIImage(named: "propic4")!, name: "Aarya"),
+    Profile(username: "hari.p", sunSign: "Libra", moonSign: "Aquarius", risingSign: "Leo", profilePicture: UIImage(named: "propic3")!, name: "Hari"),
+    Profile(username: "anya.liu", sunSign: "Cancer", moonSign: "Cancer", risingSign: "Aries", profilePicture: UIImage(named: "propic4")!, name: "Anya"),
+    Profile(username: "gkorrapati", sunSign: "Aquarius", moonSign: "Capricorn", risingSign: "Gemini", profilePicture: UIImage(named: "propic5")!, name: "Geethika"),
+    Profile(username: "sarayu10", sunSign: "Scorpio", moonSign: "Libra", risingSign: "Cancer", profilePicture: UIImage(named: "propic1")!, name: "sararyu10"),
+    Profile(username: "riapatel1", sunSign: "Aries", moonSign: "Pisces", risingSign: "Leo", profilePicture: UIImage(named: "propic2")!, name: "Ria"),
+    Profile(username: "disha_patel", sunSign: "Virgo", moonSign: "Aries", risingSign: "Aries", profilePicture: UIImage(named: "propic3")!, name: "Disha"),
+    Profile(username: "kevinlin1", sunSign: "Saggitarius", moonSign: "Scorpio", risingSign: "Cancer", profilePicture: UIImage(named: "propic4")!, name: "Kevin")
+ ]
 
     
     var body: some View {
@@ -53,59 +64,51 @@ struct FriendsView: View {
                         .padding(.top,60)
                         .padding()
                         .alignmentGuide(.leading) { _ in 10 }
-                        let sampleProfile = Profile(username: "ulamsal", sunSign: "Aries", moonSign: "Pisces", risingSign: "Leo", profilePicture: UIImage(named: "propic1")!, name: "upasana")
-                        let sampleProfile1 = Profile(username: "aarya_nag", sunSign: "Scorpio", moonSign: "Taurus", risingSign: "Scorpio", profilePicture: UIImage(named: "propic4")!, name: "Aarya")
-                        let sampleProfile2 = Profile(username: "hari.p", sunSign: "Libra", moonSign: "Aquarius", risingSign: "Leo", profilePicture: UIImage(named: "propic3")!, name: "Hari")
-                        let sampleProfile3 = Profile(username: "anya.liu", sunSign: "Cancer", moonSign: "Cancer", risingSign: "Aries", profilePicture: UIImage(named: "propic4")!, name: "Anya")
-                        let sampleProfile4 = Profile(username: "gkorrapati", sunSign: "Aquarius", moonSign: "Capricorn", risingSign: "Gemini", profilePicture: UIImage(named: "propic5")!, name: "Geethika")
-                        let sampleProfile5 = Profile(username: "sarayu10", sunSign: "Scorpio", moonSign: "Libra", risingSign: "Cancer", profilePicture: UIImage(named: "propic1")!, name: "sararyu10")
-                        let sampleProfile6 = Profile(username: "riapatel1", sunSign: "Aries", moonSign: "Pisces", risingSign: "Leo", profilePicture: UIImage(named: "propic2")!, name: "Ria")
-                        let sampleProfile7 = Profile(username: "disha_patel", sunSign: "Virgo", moonSign: "Aries", risingSign: "Aries", profilePicture: UIImage(named: "propic3")!, name: "Disha")
-                        let sampleProfile8 = Profile(username: "kevinlin1", sunSign: "Saggitarius", moonSign: "Scorpio", risingSign: "Cancer", profilePicture: UIImage(named: "propic4")!, name: "Kevin")
+                        
                         HStack{
-                            FriendAddView(profile: sampleProfile)
+                            FriendAddView(profile: sampleProfiles[0])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested0)
                                 .padding(.leading, -280)
                         }
                         .padding(.top, -120)
                         HStack{
-                            FriendAddView(profile: sampleProfile1)
+                            FriendAddView(profile: sampleProfiles[1])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested1)
                                 .padding(.leading, -280)
                         }
                         .padding(.top, -135)
                         HStack{
-                            FriendAddView(profile: sampleProfile2)
+                            FriendAddView(profile: sampleProfiles[2])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested2)
                                 .padding(.leading, -280)
                         }
                         .padding(.top, -150)
                         HStack{
-                            FriendAddView(profile: sampleProfile3)
+                            FriendAddView(profile: sampleProfiles[3])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested3)
                                 .padding(.leading, -280)
                         }
                         .padding(.top, -165)
                         HStack{
-                            FriendAddView(profile: sampleProfile4)
+                            FriendAddView(profile: sampleProfiles[4])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested4)
                                 .padding(.leading, -280)
                         }
                         .padding(.top, -180)
                         HStack{
-                            FriendAddView(profile: sampleProfile5)
+                            FriendAddView(profile: sampleProfiles[5])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested5)
                                 .padding(.leading, -280)
                         }
                         .padding(.top, -195)
                         HStack{
-                            FriendAddView(profile: sampleProfile6)
+                            FriendAddView(profile: sampleProfiles[6])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested6)
                                 .padding(.leading, -280)
@@ -113,7 +116,7 @@ struct FriendsView: View {
                         .padding(.top, -210)
                         
                         HStack{
-                            FriendAddView(profile: sampleProfile7)
+                            FriendAddView(profile: sampleProfiles[7])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested7)
                                 .padding(.leading, -280)
@@ -121,7 +124,7 @@ struct FriendsView: View {
                         .padding(.top, -225)
                         
                         HStack{
-                            FriendAddView(profile: sampleProfile8)
+                            FriendAddView(profile: sampleProfiles[8])
                                 .padding(.leading, 150)
                             RequestButton1(isRequested: $isRequested8)
                                 .padding(.leading, -280)
@@ -250,5 +253,3 @@ struct BottomBannerView2: View {
 #Preview {
     FriendsView()
 }
-
-

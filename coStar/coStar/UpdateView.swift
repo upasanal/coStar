@@ -8,31 +8,34 @@
 import SwiftUI
 
 struct UpdateView: View {
-    @State private var selectedNumber: Int? = 22
+    @Binding var selectedNumber: Int?
 
     let numbers = [19, 20, 21, 22, 23]
 
     var body: some View {
-        Rectangle()
-                    .fill(Color.white)
-                    .frame(height: 90) // Adjust the height as needed
-                    .overlay(
-                        HStack(spacing: 45) {
-                            ForEach(numbers, id: \.self) { number in
-                                NumberView(number: number, isSelected: selectedNumber == number)
-                                    .onTapGesture {
-                                        selectedNumber = number
-                                    }
-                            }
+        VStack {
+            Rectangle()
+                .fill(Color.white)
+                .frame(height: 90) // Adjust the height as needed
+                .overlay(
+                    HStack(spacing: 45) {
+                        ForEach(numbers, id: \.self) { number in
+                            NumberView(number: number, isSelected: selectedNumber == number)
+                                .onTapGesture {
+                                    selectedNumber = number
+                                }
                         }
-                        .padding()
-                    )
-        Rectangle()
-            .frame(width:370,height: 1) // Height of the gray line
-            .foregroundColor(Color.gray.opacity(0.3))
-            .padding(.top, -8)
-            }
+                    }
+                    .padding()
+                )
+            Rectangle()
+                .frame(width:370,height: 1) // Height of the gray line
+                .foregroundColor(Color.gray.opacity(0.3))
+                .padding(.top, -8)
         }
+    }
+}
+
 struct NumberView: View {
     let number: Int
     let isSelected: Bool
@@ -67,5 +70,5 @@ struct NumberView: View {
 }
 
 #Preview {
-    UpdateView()
+    UpdateView(selectedNumber: .constant(22))
 }
